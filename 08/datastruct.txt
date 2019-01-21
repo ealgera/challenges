@@ -1,0 +1,56 @@
+JSON Syntax Rules
+JSON syntax is derived from JavaScript object notation syntax:
+
+Data is in name/value pairs
+Data is separated by commas
+Curly braces hold objects
+Square brackets hold arrays
+
+Kamers
+   Kamer
+      item:<item-naam>
+      waarde:<item-waarde>
+
+Voorbeeld
+
+Kamers
+   Woonkamer
+      item:televisie
+      waarde:1000
+      item:bank
+      waarde:3000
+      item:eettafel
+      waarde:1500
+   Slaapkamer 01
+      item:bed
+      waarde:800
+      item:kast
+      waarde:300
+      item:wekker
+      waarde:25
+   Zolder
+      item:computer
+      waarde:750
+      item:bureaustoel
+      waarde:50
+      item:wasmachine
+      waarde:800
+
+In JSON:
+{"Kamers":[
+    {"Woonkamer":[
+       {"item":"televisie", "waarde":"1000"},
+       {"item":"bank", "waarde":"3000"},
+       {"item":"eettafel", "waarde":"1500"}]},
+    {"Slaapkamer 01":[
+       {"item":"bed", "waarde":"800"},
+       {"item":"kast", "waarde":"300"},
+       {"item":"wekker", "waarde":"25"}]},
+    {"Zolder":[
+       {"item":"computer", "waarde":"750"},
+       {"item":"bureaustoel", "waarde":"50"},
+       {"item":"wasmachine", "waarde":"800"}]}
+    ]
+ }
+   
+

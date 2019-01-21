@@ -1,0 +1,42 @@
+ {
+    "Kamers": 
+    {
+       "Kamer":
+        [{
+           "naam":"Woonkamer", 
+           "items":
+                [
+                    {"item":"Televisie", "waarde":"1000"},
+                    {"item":"Bank", "waarde":"3000"},
+                    {"item":"Eettafel", "waarde":"1500"},
+                    {"item":"Lamp", "waarde":"175"},
+                    {"item":"Versterker", "waarde":"999"}
+                ] 
+        }, 
+        {
+           "naam":"Slaapkamer",
+           "items": 
+                [
+                    {"item":"Bed", "waarde":"800"},
+                    {"item":"Kast", "waarde":"300"},
+                    {"item":"Wekker", "waarde":"25"}
+                ]
+        },
+        {
+            "naam":"Zolder",
+            "items":
+                [
+                    {"item":"Computer", "waarde":"750"},
+                    {"item":"Bureaustoel", "waarde":"50"},
+                    {"item":"Wasmachine", "waarde":"800"},
+                    {"item":"Logeerbed", "waarde":"299"}
+                ]
+         },
+         {
+            "naam":"Keuken",
+            "items":
+                []
+         }
+        ]
+    }
+} 

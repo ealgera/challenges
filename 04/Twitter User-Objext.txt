@@ -1,0 +1,13 @@
+Twitter User-Objext
+	id
+	id_str
+	name
+	screen_name
+	location
+	url
+	description
+	protected (bool)
+	verified (bool)
+	followers_count
+	friends_count
+	
