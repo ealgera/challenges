@@ -14,12 +14,16 @@ for room in rooms['Kamers']['Kamer']: # Want dit niveau is een list / iterable
     t = MyInventory(room['naam'])
     
     for item in room['items']: # Want dit niveau is een list / iterable
-        i = MyInventory.MyItems(item['item'], item['waarde'])
-        t.addInvItems(i)
+        t.addInvItems(item['item'], item['waarde'])
 
     my_inv.append(t)
-
+#
+#new_inv = MyInventory("Keuken")
+#new_inv.addInvItems('Vaatwasser', 875)
+#my_inv.append(new_inv)
+#
 new_inv = MyInventory("Bij-Keuken")
+new_inv.addInvItems('Container', 75)
 my_inv.append(new_inv)
 
 print(f"Number of rooms: {len(my_inv)}")
