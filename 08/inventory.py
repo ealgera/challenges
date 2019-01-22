@@ -1,35 +1,16 @@
-import json
-from pprint import pprint
-from inventoryClass import MyInventory
+from InventoriesClass import Inventories
 
-my_inv = []
+my_inv = Inventories()
+my_inv.load_inventory('inventory.json')
 
-with open('inventory.json') as f:
-    rooms = json.load(f)
+#Bestaande kamers
+my_inv.add_inventory("Keuken", "Vaatwasser", 875)
+my_inv.add_inventory("Woonkamer", "Kussen", 5)
+my_inv.add_inventory("Keuken", "Pannenset", 199)
 
-print()
+#Niet bestaande kamers
+my_inv.add_inventory("Kelder", "Oude fiets", 2)
+my_inv.add_inventory("Bijkeuken", "Afvalemmer", 10.99)
 
-# Read JSON elements into inventory objects
-for room in rooms['Kamers']['Kamer']: # Want dit niveau is een list / iterable
-    t = MyInventory(room['naam'])
-    
-    for item in room['items']: # Want dit niveau is een list / iterable
-        t.addInvItems(item['item'], item['waarde'])
-
-    my_inv.append(t)
-#
-#new_inv = MyInventory("Keuken")
-#new_inv.addInvItems('Vaatwasser', 875)
-#my_inv.append(new_inv)
-#
-new_inv = MyInventory("Bij-Keuken")
-new_inv.addInvItems('Container', 75)
-my_inv.append(new_inv)
-
-print(f"Number of rooms: {len(my_inv)}")
-print()
-
-for item in my_inv:
-    print(item.showInv())
-
-print()
+my_inv.show()
+my_inv.print_total()
