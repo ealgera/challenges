@@ -21,6 +21,16 @@ class Inventories():
         self.cur += 1
         return self.inventory_list[i]
 
+    def save_inventory(self, fname):
+        #json_string = json.dumps([ob.__dict__ for ob in self])
+        json_string = json.dumps(self, default=lambda x: x.__dict__)
+        with open(fname, 'w') as f:
+            #for item in self:
+            #    print(type(item))
+            #    t = json.dumps(item, default=lambda x: x.__dict__)
+            json.dump(json_string, f)
+        #print(t)
+
     def load_inventory(self, fname):
         # Read JSON elements into inventory objects
         with open(fname) as f:
