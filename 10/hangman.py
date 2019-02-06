@@ -21,6 +21,8 @@ if __name__ == '__main__':
         word = sys.argv[1]
     else:
         word = get_word()
-    print(word)
+    #print(word)
+    for i, graph in enumerate(HANG_GRAPHICS):
+        print(i, graph)
 
     # init / call program
