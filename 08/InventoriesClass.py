@@ -34,6 +34,10 @@ class Inventories():
 
             self.inventory_list.append(t)
 
+    def write_inventory(self):
+        with open('temp.json', 'w') as f:
+            json.dump(self.inventory_list, f)
+
     def add_inventory(self, name, item, cost):
         i = self.search_inventory(name) 
         if  i >= 0:

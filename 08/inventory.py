@@ -12,5 +12,7 @@ my_inv.add_inventory("Keuken", "Pannenset", 199)
 my_inv.add_inventory("Kelder", "Oude fiets", 2)
 my_inv.add_inventory("Bijkeuken", "Afvalemmer", 10.99)
 
-my_inv.show()
-my_inv.print_total()
+#my_inv.show()
+#my_inv.print_total()
+
+my_inv.write_inventory()
