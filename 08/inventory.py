@@ -1,4 +1,5 @@
 from InventoriesClass import Inventories
+from pprint import pprint
 
 my_inv = Inventories()
 my_inv.load_inventory('inventory.json')
