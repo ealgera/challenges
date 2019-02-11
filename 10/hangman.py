@@ -25,7 +25,7 @@ class Hangman(object):
         for letter in self.word_sofar:
             print(letter, end="")
         print()
-        print(self.word)
+        #print(self.word)
     
     def print_header(self):
         os.system('clear')
@@ -40,16 +40,17 @@ class Hangman(object):
     def check_letter(self, _l):
         self.guesses += 1
         self.letters_guessed.append(_l)
-        if _l in self.word:
+        if (_l.lower()) in self.word.lower():
             self.letters_found.append(_l)
             self.score += 2
-            tmp = [i for i, letter in enumerate(self.word) if letter.lower() == _l.lower()]
+            tmp = [i for i, letter in enumerate(self.word) if (letter.lower() == _l.lower())]
             for i in range(len(tmp)):
-                self.word_sofar[tmp[i]] = _l
+                self.word_sofar[tmp[i]] = self.word[tmp[i]]
         else:
             self.false_guesses +=1
-
-# or use functions ...
+    
+    def check_word(self, _w):
+        return (_w.lower() == self.word.lower())
 
 if __name__ == '__main__':
     if len(sys.argv) > 1:
@@ -57,10 +58,8 @@ if __name__ == '__main__':
     else:
         word = get_word()
     
-# init / call progra
 hm = Hangman(word)
 playing = True
-#os.system('clear')
 
 while playing:
     if hm.false_guesses > ALLOWED_GUESSES:
@@ -68,7 +67,20 @@ while playing:
         break
     hm.print_header()
     hm.print_word_sofar()
+    print(f"Use only lowercase letters. 0 To quit. 9 To guess word.")
     my_letter = input("What letter do you want? ")
+    if my_letter == '0':
+        playing = False
+        break
+    elif my_letter == '9':
+        my_word = input("What is the word? ")
+        if hm.check_word(my_word):
+            playing = False
+            print("Congratulations!!!")
+        else:
+            print("Wrong word....")
+            input(" >>> Press any key <<<")
+
     hm.check_letter(my_letter)
 
 # Game Over...
