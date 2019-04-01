@@ -16,7 +16,7 @@ $ for i in ../*/*py; do grep ^import $i|sed 's/import //g' ; done | sort | uniq 
 """
 
 def gen_files(pat):
-    pass
+   pass
 
 def gen_lines(files):
     pass
