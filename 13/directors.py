@@ -4,11 +4,11 @@ from operator import attrgetter
 
 MOVIE_DATA = 'movie_metadata.csv'
 NUM_TOP_DIRECTORS = 20
-MIN_MOVIES = 6
-MIN_YEAR = 1980
+MIN_MOVIES = 4
+MIN_YEAR = 1960
+MAX_MOVIES = 20
 
 Movie = namedtuple('Movie', 'title year score')
-
 
 def get_movies_by_director():
     '''Extracts all movies from csv and stores them in a dictionary
@@ -32,7 +32,6 @@ def get_average_scores(directors):
         t[d].append(mean)
     return t
 
-
 def _calc_mean(movies):
     '''Helper method to calculate mean of list of Movie namedtuples'''
     s = 0
@@ -40,23 +39,19 @@ def _calc_mean(movies):
         s += float(m.score)
     return (round((s / len(movies)),1))
 
-
 def print_results(directors):
     '''Print directors ordered by highest average rating. For each director
     print his/her movies also ordered by highest rated movie.
     See http://pybit.es/codechallenge13.html for example output'''
     sorted_directors = sorted(directors.items(), key = lambda kv:(kv[1][-1], kv[0]), reverse=True)
     
-    fmt_director_entry = '{counter}. {director:<52} {movies[-1]}'
-    fmt_movie_entry = '{year}] {title:<50} {score}'
     sep_line = '-' * 60
-
-    counter = 1
-    for director, movies in sorted_directors:
-        print(f'{str(counter).zfill(2)}. {director:<52} {movies[-1]}')
-        counter += 1
+    dir_counter = 1
+    
+    for director, movies in sorted_directors[:MAX_MOVIES]:
+        print(f'{str(dir_counter).zfill(2)}. {director:<52} {movies[-1]}')
+        dir_counter += 1
         print(sep_line)
-        print()
 
         for m in sorted(movies[:-1], key=attrgetter('score'), reverse=True):
             print(f'{m.year}] {m.title:<50} {m.score}')

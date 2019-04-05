@@ -80,13 +80,13 @@ class UserTweets(object):
         #os.chdir(_path)
 
 
-#if __name__ == "__main__":
-#
-#    for handle in ('pybites', 'evanderburg', 'ericalgera'):
-#        print('--- {} ---'.format(handle))
-#        user = UserTweets(handle)
-#        for tw in user[:5]:
-#            print("***: {} - {}".format(tw.id_str, tw.created_at))
-#        print(len(user))
-#        #print(user.tweets)
+if __name__ == "__main__":
+
+    for handle in ('pybites', 'evanderburg', 'ericalgera'):
+        print('--- {} ---'.format(handle))
+        user = UserTweets(handle)
+        for tw in user[:5]:
+            print("***: {} - {}".format(tw.id_str, tw.created_at))
+        print(len(user))
+        #print(user.tweets)
 
